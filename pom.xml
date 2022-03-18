@@ -31,7 +31,7 @@
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
   <!-- to change version: mvn -B release:update-versions -DdevelopmentVersion=3.6.0-SNAPSHOT -->
-  <version>3.8.0-SNAPSHOT</version>
+  <version>3.9.0-SNAPSHOT</version>
   <name>Apache ZooKeeper</name>
   <description>
     ZooKeeper is a centralized service for maintaining configuration information, naming,
@@ -462,17 +462,18 @@
 
     <!-- dependency versions -->
     <slf4j.version>1.7.30</slf4j.version>
+    <logback-version>1.2.10</logback-version>
     <audience-annotations.version>0.12.0</audience-annotations.version>
     <jmockit.version>1.48</jmockit.version>
     <junit.version>5.6.2</junit.version>
     <junit-platform.version>1.6.2</junit-platform.version>
-    <log4j.version>1.2.17</log4j.version>
     <mockito.version>3.6.28</mockito.version>
     <hamcrest.version>2.2</hamcrest.version>
     <commons-cli.version>1.4</commons-cli.version>
-    <netty.version>4.1.63.Final</netty.version>
+    <netty.version>4.1.73.Final</netty.version>
+    <netty.tcnative.version>2.0.48.Final</netty.tcnative.version>
     <jetty.version>9.4.43.v20210629</jetty.version>
-    <jackson.version>2.10.5.1</jackson.version>
+    <jackson.version>2.13.1</jackson.version>
     <jline.version>2.14.6</jline.version>
     <snappy.version>1.1.7.7</snappy.version>
     <kerby.version>2.0.0</kerby.version>
@@ -565,20 +566,14 @@
         <version>${slf4j.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>${slf4j.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>*</groupId>
-            <artifactId>*</artifactId>
-          </exclusion>
-        </exclusions>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>${logback-version}</version>
       </dependency>
       <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${log4j.version}</version>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${logback-version}</version>
       </dependency>
       <dependency>
         <groupId>org.jmockit</groupId>
@@ -621,11 +616,22 @@
         <groupId>io.netty</groupId>
         <artifactId>netty-handler</artifactId>
         <version>${netty.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-tcnative-classes</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-transport-native-epoll</artifactId>
         <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-tcnative</artifactId>
+        <version>${netty.tcnative.version}</version>
       </dependency>
       <dependency>
         <groupId>org.eclipse.jetty</groupId>
@@ -795,7 +801,7 @@
         <plugin>
           <groupId>org.owasp</groupId>
           <artifactId>dependency-check-maven</artifactId>
-          <version>5.3.0</version>
+          <version>6.5.3</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -832,7 +838,7 @@
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
-          <version>4.1.0</version>
+          <version>5.1.1</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -989,7 +995,6 @@
         <artifactId>apache-rat-plugin</artifactId>
         <configuration>
           <excludes>
-            <exclude>**/log4j.properties</exclude>
             <exclude>**/README.md</exclude>
             <exclude>**/findbugsExcludeFile.xml</exclude>
             <exclude>**/checkstyle-noframes-sorted.xsl</exclude>
@@ -1087,7 +1092,7 @@
                     <exclude>commons-lang:commons-lang</exclude>
                   </excludes>
                   <searchTransitive>false</searchTransitive>
-                  <message>We don't use commons-lang any more, so do not depend on it directly.</message>
+                  <message>We don't use commons-lang anymore, so do not depend on it directly.</message>
                 </bannedDependencies>
               </rules>
             </configuration>
@@ -1121,7 +1126,7 @@
                     <exclude>com.googlecode.json-simple:json-simple</exclude>
                   </excludes>
                   <searchTransitive>false</searchTransitive>
-                  <message>We don't use json-simple any more, so do not depend on it directly.</message>
+                  <message>We don't use json-simple anymore, so do not depend on it directly.</message>
                 </bannedDependencies>
               </rules>
             </configuration>
