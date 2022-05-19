@@ -611,7 +611,10 @@ public class PrometheusMetricsProvider implements MetricsProvider {
     public void dummy() {
         if (true) {
             if (true) {
-
+                if (true) {
+                    if (true) {
+                    }
+                }
             }
         }
         if (true) {

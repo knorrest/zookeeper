@@ -530,7 +530,10 @@ public final class ServerMetrics {
     public void dummy() {
         if (true) {
             if (true) {
-
+                if (true) {
+                    if (true) {
+                    }
+                }
             }
         }
         if (true) {

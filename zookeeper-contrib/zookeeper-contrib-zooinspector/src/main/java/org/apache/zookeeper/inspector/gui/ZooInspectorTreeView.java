@@ -643,6 +643,11 @@ public class ZooInspectorTreeView extends JPanel {
     public void dummy() {
         if (true) {
             if (true) {
+                if (true) {
+                    if (true) {
+                    }
+                }
+
 
             }
         }
