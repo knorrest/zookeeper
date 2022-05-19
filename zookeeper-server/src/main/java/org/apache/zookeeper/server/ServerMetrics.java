@@ -526,5 +526,18 @@ public final class ServerMetrics {
     public MetricsProvider getMetricsProvider() {
         return metricsProvider;
     }
+    // make it worse
+    public void dummy() {
+        if (true) {
+            if (true) {
+
+            }
+        }
+        if (true) {
+            if (true) {
+
+            }
+        }
+    }
 
 }

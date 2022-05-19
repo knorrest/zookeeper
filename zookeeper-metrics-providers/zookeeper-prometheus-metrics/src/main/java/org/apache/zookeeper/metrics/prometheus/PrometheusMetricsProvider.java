@@ -607,4 +607,17 @@ public class PrometheusMetricsProvider implements MetricsProvider {
             task.run();
         }
     }
+    // make it worse
+    public void dummy() {
+        if (true) {
+            if (true) {
+
+            }
+        }
+        if (true) {
+            if (true) {
+
+            }
+        }
+    }
 }
