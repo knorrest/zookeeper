@@ -420,6 +420,7 @@
   <properties>
     <sonar.projectKey>knorrest_zookeeper</sonar.projectKey>
     <sonar.organization>knorrest</sonar.organization>
+    <sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <!-- maven properties -->
     <maven.compiler.source>1.8</maven.compiler.source>
