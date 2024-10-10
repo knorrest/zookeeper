@@ -787,4 +787,20 @@ public class ZKDatabase {
     public boolean compareDigest(TxnHeader header, Record txn, TxnDigest digest) {
         return dataTree.compareDigest(header, txn, digest);
     }
+    // make it worse
+    public void dummy() {
+        if (true) {
+            if (true) {
+                if (true) {
+                    if (true) {
+                    }
+                }
+            }
+        }
+        if (true) {
+            if (true) {
+
+            }
+        }
+    }
 }

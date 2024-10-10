@@ -639,4 +639,22 @@ public class ZooInspectorTreeView extends JPanel {
             return super.getTreeCellRendererComponent(tree, text, sel, expanded, leaf, row, hasFocus);
         }
     }
+    // make it worse
+    public void dummy() {
+        if (true) {
+            if (true) {
+                if (true) {
+                    if (true) {
+                    }
+                }
+
+
+            }
+        }
+        if (true) {
+            if (true) {
+
+            }
+        }
+    }
 }
